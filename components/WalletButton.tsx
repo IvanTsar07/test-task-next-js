@@ -1,11 +1,12 @@
 "use client";
 
-import { useSDK } from "@metamask/sdk-react";
-import { formatAddress, formatBalance } from "@/lib/utils";
+import { useEffect } from "react";
 import { Button, Modal } from "antd";
+import { useSDK } from "@metamask/sdk-react";
+
+import { formatAddress, formatBalance } from "@/lib/utils";
 import { useAppDispatch } from "@/lib/hooks";
 import { walletSlice } from "@/lib/features/wallet/walletSlice";
-import { useEffect } from "react";
 
 export const WalletButton = () => {
   const dispatch = useAppDispatch();

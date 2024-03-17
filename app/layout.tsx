@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
-import StoreProvider from "./StoreProvider";
-import NavBar from "@/components/layout/NavBar";
-import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { ConfigProvider } from "antd";
+import { AntdRegistry } from "@ant-design/nextjs-registry";
+
+import NavBar from "@/components/layout/NavBar";
+
+import StoreProvider from "./StoreProvider";
+
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 

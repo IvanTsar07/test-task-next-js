@@ -1,7 +1,8 @@
 import { AppState } from "@/lib/store";
-import { PostModel, PostsState } from "./postsSlice";
+import { PostsState } from "./postsSlice";
 import { createSelector } from "@reduxjs/toolkit";
 import { selectUsers } from "../users/selectors";
+import { PostModel } from "./types";
 
 export const selectPosts = (state: AppState) => state.posts;
 export const selectComments = (state: AppState) => state.posts.comments;

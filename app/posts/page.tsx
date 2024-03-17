@@ -1,14 +1,14 @@
 "use client";
 
 import { loadPosts } from "@/lib/api/posts";
-import { PostModel, postsSlice } from "@/lib/features/posts/postsSlice";
+import { postsSlice } from "@/lib/features/posts/postsSlice";
 import { selectExtendedPostsList } from "@/lib/features/posts/selectors";
+import { PostModel } from "@/lib/features/posts/types";
 import { usersSlice } from "@/lib/features/users/usersSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { randomDate } from "@/lib/utils";
 import { UserOutlined } from "@ant-design/icons";
 import { Avatar, Flex } from "antd";
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 

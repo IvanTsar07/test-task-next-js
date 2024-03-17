@@ -1,9 +1,4 @@
-import { init } from "./../../../node_modules/i18next/index.d";
-import {
-  createEntityAdapter,
-  createSlice,
-  PayloadAction,
-} from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type WalletState = {
   account: string;

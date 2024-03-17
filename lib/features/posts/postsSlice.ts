@@ -1,26 +1,9 @@
-import { loadComments } from "./../../api/posts/index";
 import {
   createEntityAdapter,
   createSlice,
   PayloadAction,
 } from "@reduxjs/toolkit";
-
-export type PostModel = {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-  createdAt: number;
-  formattedCreatedAt?: string;
-};
-
-export type Comment = {
-  postId: number;
-  id: number;
-  name: string;
-  email: string;
-  body: string;
-};
+import { PostModel, Comment } from "./types";
 
 export type PostsState = {
   isLoading: boolean;
@@ -41,7 +24,7 @@ export const postsSlice = createSlice({
   initialState: postsAdapter.getInitialState(initialPostsState),
   reducers: {
     setPosts: (state, action: PayloadAction<{ posts: PostModel[] }>) => {
-      state.posts = action.payload.posts;
+      postsAdapter.setAll(state, action.payload);
     },
     loadComments: (_, _2: PayloadAction<{ postId: string }>) => {},
     loadCommentsSuccess: (
