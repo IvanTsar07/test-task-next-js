@@ -23,7 +23,6 @@ export const usersSlice = createSlice({
       action: PayloadAction<{ users: UserModel[] }>
     ) => {
       state.isLoading = false;
-      console.log("REDUCER USERS >>>>>", action.payload.users);
       state.users = action.payload.users;
     },
     loadUsersFailed: (state, _) => {

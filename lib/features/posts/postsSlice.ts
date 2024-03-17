@@ -24,7 +24,7 @@ export const postsSlice = createSlice({
   initialState: postsAdapter.getInitialState(initialPostsState),
   reducers: {
     setPosts: (state, action: PayloadAction<{ posts: PostModel[] }>) => {
-      postsAdapter.setAll(state, action.payload);
+      state.posts = action.payload.posts;
     },
     loadComments: (_, _2: PayloadAction<{ postId: string }>) => {},
     loadCommentsSuccess: (

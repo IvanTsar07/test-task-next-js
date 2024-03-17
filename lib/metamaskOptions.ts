@@ -5,7 +5,7 @@ const sdkOptions = {
   logging: { developerMode: false },
   checkInstallationImmediately: false,
   dappMetadata: {
-    name: "Next-Metamask-Posts",
+    name: "MetaMask-App",
     url: host, // using the host constant defined above
   },
 };

@@ -15,10 +15,6 @@ export const WalletButton = () => {
     useSDK();
 
   useEffect(() => {
-    console.log("RENDER >>>> ", sdk?._getConnection());
-  }, []);
-
-  useEffect(() => {
     if (status?.connectionStatus === "disconnected") {
       connect();
     }
@@ -37,12 +33,18 @@ export const WalletButton = () => {
     return () => {
       disconnect();
     };
-  }, [account, balance, chainId, status?.connectionStatus, connected]);
+  }, [
+    account,
+    balance,
+    chainId,
+    status?.connectionStatus,
+    connected,
+    connecting,
+  ]);
 
   const connect = async () => {
     try {
-      const res = await sdk?.connect();
-      console.log("CONNECTED RESPONSE >>>> ", res);
+      await sdk?.connect();
 
       Modal.success({
         title: "Connected",
