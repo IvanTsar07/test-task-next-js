@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import StoreProvider from "./StoreProvider";
+import NavBar from "@/components/layout/NavBar";
+import { AntdRegistry } from "@ant-design/nextjs-registry";
+import { ConfigProvider } from "antd";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +20,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <AntdRegistry>
+          <ConfigProvider
+            theme={{
+              token: {
+                colorTextHeading: "#FFFFFFD9",
+                colorTextDescription: "#FFFFFFA6",
+              },
+            }}
+          >
+            <StoreProvider>
+              <NavBar />
+              {children}
+            </StoreProvider>
+          </ConfigProvider>
+        </AntdRegistry>
+      </body>
     </html>
   );
 }
