@@ -28,5 +28,9 @@ export const usersSlice = createSlice({
     loadUsersFailed: (state, _) => {
       state.isLoading = false;
     },
+    loadUser: (state, _) => {},
+    loadUserSuccess: (state, action: PayloadAction<{ user: UserModel }>) => {
+      state.users.push(action.payload.user);
+    },
   },
 });

@@ -15,6 +15,10 @@ export default function PostPage({ params }: { params: { id: string } }) {
   const post = useAppSelector(selectPostById(Number(postId)));
 
   useEffect(() => {
+    if (!post) {
+      dispatch(postsSlice.actions.loadPost({ postId }));
+    }
+
     dispatch(postsSlice.actions.loadComments({ postId }));
   }, [postId]);
 

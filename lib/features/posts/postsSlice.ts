@@ -26,6 +26,11 @@ export const postsSlice = createSlice({
     setPosts: (state, action: PayloadAction<{ posts: PostModel[] }>) => {
       state.posts = action.payload.posts;
     },
+    loadPost: (_, _2: PayloadAction<{ postId: string }>) => {},
+    loadPostSuccess: (state, action: PayloadAction<{ post: PostModel }>) => {
+      state.posts.push(action.payload.post);
+    },
+    loadPostFailed: (_, _2: PayloadAction<{ postId: string }>) => {},
     loadComments: (_, _2: PayloadAction<{ postId: string }>) => {},
     loadCommentsSuccess: (
       state,

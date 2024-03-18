@@ -7,6 +7,18 @@ export const loadPosts = async () => {
   return posts;
 };
 
+export const loadPost = async (postId: string) => {
+  const response = await fetch(
+    `https://jsonplaceholder.typicode.com/posts/${postId}`,
+    {
+      cache: "force-cache",
+    }
+  );
+  const post = await response.json();
+
+  return post;
+};
+
 export const loadComments = async (postId: string) => {
   const response = await fetch(
     `https://jsonplaceholder.typicode.com/posts/${postId}/comments`,
